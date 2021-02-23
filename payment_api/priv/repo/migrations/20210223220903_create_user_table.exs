@@ -8,6 +8,11 @@ defmodule PaymentApi.Repo.Migrations.CreateUserTable do
       add :email, :string
       add :password_hash, :string
       add :nickname, :string
+
+      timestamps()
     end
+
+    create unique_index(:users, [:email])
+    create unique_index(:users, [:nickname])
   end
 end
